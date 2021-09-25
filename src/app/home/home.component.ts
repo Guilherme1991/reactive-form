@@ -16,12 +16,13 @@ export class HomeComponent implements OnInit {
     this.form = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
       name: ['', [Validators.required]],
-      fullName: ['',[minusculoValidator]],
+      fullName: ['',[Validators.required, minusculoValidator]],
       transfer: ['', [Validators.required, Validators.minLength(4)]]
     })
   }
   send() {
     const send = this.form.getRawValue() as Send;
     console.log(send);
+    alert('Formulário enviado com sucesso!')
   }
 }

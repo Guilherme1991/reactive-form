@@ -1,25 +1,39 @@
-<div>
-    <form class="form" [formGroup]="form" (ngSubmit)="send()">
-        <div class="form-group">
-            <input type="text" formControlName="email" name="email" />
-            <app-message alert="E-mail obrigatório!" *ngIf="form.get('email')?.errors?.email && form.get('email')?.touched">
-            </app-message>
+<div class="row mt-4">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+        <div class="text-center">
+            <img src="assets/img/angular.png" alt="Logo" title="Logo">
+            <h3>Reactive form Angular</h3>
         </div>
-        <div class="form-group">
-            <input type="text" formControlName="name" name="name" />
-            <app-message alert="Nome obrigatório!" *ngIf="form.get('name')?.errors && form.get('name')?.touched">
-            </app-message>
-        </div>
-        <div class="form-group">
-            <input type="text" formControlName="fullName" name="fullName" />
-            <app-message alert="Sobrenome obrigatório!" *ngIf="form.get('fullName')?.errors && form.get('fullName')?.touched">
-            </app-message>
-        </div>
-        <div class="form-group">
-            <input type="text" formControlName="transfer" name="transfer" />
-            <app-message alert="Valor da transferencia obrigatório!"
-                *ngIf="form.get('transfer')?.errors && form.get('transfer')?.touched"></app-message>
-        </div>
-        <button class="btn btn-primary" [disabled]="form.invalid">Enviar transferencia</button>
-    </form>
+        <form class="form" [formGroup]="form" (ngSubmit)="send()">
+            <div class="form-group">
+                <label>E-mail:</label>
+                <input class="form-control mt-2" type="text" formControlName="email" name="email" />
+                <app-message alert="E-mail obrigatório!"
+                    *ngIf="form.get('email')?.errors?.email && form.get('email')?.touched">
+                </app-message>
+            </div>
+            <div class="form-group">
+                <label>Nome:</label>
+                <input class="form-control mt-2" type="text" formControlName="name" name="name" />
+                <app-message alert="Nome obrigatório!" *ngIf="form.get('name')?.errors && form.get('name')?.touched">
+                </app-message>
+            </div>
+            <div class="form-group">
+                <label>Sobrenome:</label>
+                <input class="form-control mt-2" type="text" formControlName="fullName" name="fullName" />
+                <app-message alert="Sobrenome obrigatório!"
+                    *ngIf="form.get('fullName')?.errors && form.get('fullName')?.touched">
+                </app-message>
+            </div>
+            <div class="form-group">
+                <label>Valor de transferencia:</label>
+                <input class="form-control mt-2" type="text" formControlName="transfer" name="transfer" />
+                <app-message alert="Valor da transferencia obrigatório!"
+                    *ngIf="form.get('transfer')?.errors && form.get('transfer')?.touched"></app-message>
+            </div>
+            <button class="btn btn-primary mt-3" [disabled]="form.invalid">Enviar transferencia</button>
+        </form>
+    </div>
+    <div class="col-md-3"></div>
 </div>
